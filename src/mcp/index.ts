@@ -69,7 +69,7 @@ export function registerV0Tools(server: McpServer) {
           content: z.string()
         })).describe("Array of files to apply"),
         targetPath: z.string().describe("Target directory path"),
-        mergeStrategy: z.enum(["overwrite", "backup", "merge", "skip-existing", "preview"]).describe("How to handle existing files"),
+        mergeStrategy: z.enum(["overwrite", "backup", "merge", "skip-existing", "preview"]).describe("How to handle existing files. options: overwrite, backup, merge, skip-existing, preview."),
         backupSuffix: z.string().optional().describe("Suffix for backup files (default: .backup)")
       }
     },

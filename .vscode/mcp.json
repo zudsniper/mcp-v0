@@ -1,0 +1,15 @@
+{
+    "servers": {
+        "exa": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-remote",
+                "https://mcp.exa.ai/mcp?exaApiKey=f8328382-cc8f-405a-a1ae-1ed2d847ec27"
+            ],
+            "env": {},
+            "working_directory": null,
+            "start_on_launch": true
+            }
+        }
+    }

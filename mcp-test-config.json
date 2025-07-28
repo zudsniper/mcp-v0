@@ -1,0 +1,45 @@
+{
+  "server": {
+    "command": "node",
+    "args": ["dist/index.js"]
+  },
+  "tests": {
+    "connectionTest": true,
+    "timeout": 15000,
+    "tools": {
+      "generate-component": {
+        "args": {
+          "prompt": "A simple React button component"
+        },
+        "expect": "result => result.content && result.content.length > 0"
+      },
+      "apply-component": {
+        "args": {
+          "files": [
+            {
+              "name": "test-component.tsx",
+              "content": "export default function TestComponent() { return <button>Test</button>; }"
+            }
+          ],
+          "targetPath": "./test-output",
+          "mergeStrategy": "preview"
+        },
+        "expect": "result => result.content && result.content[0].text.includes('Preview')"
+      },
+      "list-project-files": {
+        "args": {
+          "projectPath": "./src",
+          "pattern": "*.ts",
+          "maxDepth": 2
+        },
+        "expect": "result => result.content && result.content[0].text.includes('Found')"
+      },
+      "read-file": {
+        "args": {
+          "filePath": "./package.json"
+        },
+        "expect": "result => result.content && result.content[0].text.includes('mcp-v0-server')"
+      }
+    }
+  }
+}
