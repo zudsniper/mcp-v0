@@ -1,8 +1,8 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-const { createServer } = require("@modelcontextprotocol/sdk");
-const { V0Client } = require("v0-sdk");
+const { createServer } = require("@modelcontextprotocol/sdk/dist/cjs/index.js");
+const { V0Client } = require("v0-sdk/dist/cjs/index.js");
 
 const v0 = new V0Client({
   apiKey: process.env.V0_API_KEY,
