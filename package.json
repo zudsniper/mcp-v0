@@ -1,18 +1,17 @@
 {
   "name": "mcp-v0-server",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
-  "author": "zudsniper",
+  "author": "",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc && echo '#!/usr/bin/env node\n' | cat - dist/index.js > temp && mv temp dist/index.js",
+    "start": "dotenv -c -- node dist/index.js",
+    "build": "tsc && echo \"#!/usr/bin/env node\\n\" | cat - dist/index.js > temp && mv temp dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
     "mcp-v0-server": "./dist/index.js"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
@@ -24,7 +23,9 @@
     "typescript": "^5.8.3",
     "v0-sdk": "^0.4.1",
     "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.3",
+    "dotenv-cli": "^7.4.2"
   }
 }
-
-

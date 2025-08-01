@@ -1,20 +1,22 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { registerV0Tools } from "./mcp/index.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
-async function main() {
-  const server = new McpServer({
-    name: "v0-dev-mcp-server",
-    version: "1.0.0",
-  });
+import { createServer } from '@modelcontextprotocol/sdk';
+import { V0Client } from 'v0-sdk';
 
-  registerV0Tools(server);
+const v0 = new V0Client({
+  apiKey: process.env.V0_API_KEY,
+  model: process.env.V0_MODEL,
+});
 
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("v0.dev MCP server running on stdio");
-}
+const server = createServer({
+  tools: {
+    generateComponent: async ({ prompt }: { prompt: string }) => {
+      const result = await v0.generate({ prompt });
+      return result.code;
+    },
+  },
+});
 
-main().catch(console.error);
-
+server.start();
 
