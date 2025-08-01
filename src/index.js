@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-dotenv.config({ debug: false });
+dotenv.config();
 
 const { createServer } = require("@modelcontextprotocol/sdk");
 const { V0Client } = require("v0-sdk");
@@ -19,4 +19,5 @@ const server = createServer({
 });
 
 server.start();
+
 
