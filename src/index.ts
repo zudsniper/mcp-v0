@@ -17,7 +17,7 @@ const v0 = createClient({
 const server = new Server(
   {
     name: "mcp-v0",
-    version: "1.3.0",
+    version: "1.3.1",
   },
   {
     capabilities: {
