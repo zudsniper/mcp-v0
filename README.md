@@ -35,6 +35,12 @@ To start the MCP server, run:
 npm run start
 ```
 
+If installed globally via npm, you can also start the server with:
+
+```bash
+npx mcp-v0-server
+```
+
 The server will run and listen for MCP requests via `stdio`.
 
 ### MCP Tools
